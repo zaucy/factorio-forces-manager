@@ -121,6 +121,12 @@ fm.gui.update = function(player)
   end
 end
 
+fm.gui.update_all = function()
+  for k, player in pairs(game.players) do
+    fm.gui.update(player)
+  end
+end
+
 fm.gui.is_hidden = function(player)
   return player.gui.center.forces_manager == nil
 end

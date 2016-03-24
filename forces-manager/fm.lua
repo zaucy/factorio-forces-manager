@@ -37,11 +37,13 @@ end
 fm.join_force = function(player, force)
   force = ensure_force(force)
   player.force = force
+  fm.gui.update_all()
 end
 
 fm.leave_force = function(player, force)
   force = ensure_force(force)
   player.force = game.forces.player
+  fm.gui.update_all()
 end
 
 fm.delete_force = function(force)
@@ -49,10 +51,12 @@ fm.delete_force = function(force)
 
   force.reset()
   game.merge_forces(force.name, "player")
+  fm.gui.update_all()
 end
 
 fm.create_force = function(force_name)
-  return game.create_force(make_unique_force_name(force_name))
+  game.create_force(make_unique_force_name(force_name))
+  fm.gui.update_all()
 end
 
 fm.player_can_delete_force = function(player)
