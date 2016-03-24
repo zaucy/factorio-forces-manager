@@ -1,0 +1,11 @@
+
+{
+  "name": "forces-manager",
+  "version": "0.0.1",
+  "title": "Forces Manager",
+  "author": "Ezekiel Warren",
+  "contact": "NONE",
+  "homepage": "https://github.com/zaucy/factorio-forces-manager",
+  "description": "Manager for creating, removing, and modifying forces.",
+  "dependencies": ["base >= 0.12.22"]
+}
