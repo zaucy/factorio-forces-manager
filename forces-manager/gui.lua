@@ -55,10 +55,6 @@ local function fm_create_force_gui(force, frame, width)
 end
 
 fm.gui.show = function(player)
-  if player == nil then
-    player = game.player
-  end
-
   player.gui.center.add{type='frame', name='forces_manager', direction='vertical'}
   local fm_gui = player.gui.center.forces_manager
   fm_gui.style.maximal_width = fm.gui.width
@@ -69,7 +65,7 @@ fm.gui.show = function(player)
   fm_gui.title_flow.style.minimal_width = fm.gui.width
   fm_gui.title_flow.style.maximal_width = fm.gui.width
   fm_gui.title_flow.add{type='label', name='title', caption='Forces Manager', style='fm_title_label_style'}
-  fm_gui.title_flow.add{type='label', name='version', caption='(v0.0.1)', style='fm_version_label_style'}
+  fm_gui.title_flow.add{type='label', name='version', caption='(v0.0.2)', style='fm_version_label_style'}
 
   -- Forces Manager Settings
   fm_gui.add{type='flow', name='settings_flow', direction='vertical'}
@@ -115,25 +111,17 @@ fm.gui.show = function(player)
 end
 
 fm.gui.hide = function(player)
-  if player == nil then
-    player = game.player
-  end
-
   player.gui.center.forces_manager.destroy()
 end
 
 fm.gui.update = function(player)
-  if fm.gui.is_showing() then
+  if fm.gui.is_showing(player) then
     fm.gui.hide(player)
     fm.gui.show(player)
   end
 end
 
 fm.gui.is_hidden = function(player)
-  if player == nil then
-    player = game.player
-  end
-
   return player.gui.center.forces_manager == nil
 end
 

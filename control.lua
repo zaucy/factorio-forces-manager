@@ -8,7 +8,7 @@ script.on_event(defines.events.on_player_created, function(event)
   local player = game.players[event.player_index]
   player.gui.top.add{type="button", name="fm_toggle", caption="Show Forces Manager"}
 
-  fm.gui.update()
+  fm.gui.update(player)
 end)
 
 
@@ -40,10 +40,10 @@ script.on_event(defines.events.on_gui_click, function(event)
     local new_force_name = event.element.parent.fm_new_force_input.text
     event.element.parent.fm_new_force_input.text = ""
     fm.create_force(new_force_name)
-    fm.gui.update()
+    fm.gui.update(owner)
   elseif event.element.name == "fm_hide_default_forces_checkbox" then
     fm.settings.hide_default_forces = event.element.state
-    fm.gui.update()
+    fm.gui.update(owner)
   end
 
 end)
