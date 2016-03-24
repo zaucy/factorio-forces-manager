@@ -65,7 +65,7 @@ fm.gui.show = function(player)
   fm_gui.title_flow.style.minimal_width = fm.gui.width
   fm_gui.title_flow.style.maximal_width = fm.gui.width
   fm_gui.title_flow.add{type='label', name='title', caption='Forces Manager', style='fm_title_label_style'}
-  fm_gui.title_flow.add{type='label', name='version', caption='(v0.0.2)', style='fm_version_label_style'}
+  fm_gui.title_flow.add{type='label', name='version', caption='(v0.0.3)', style='fm_version_label_style'}
 
   -- Forces Manager Settings
   fm_gui.add{type='flow', name='settings_flow', direction='vertical'}
